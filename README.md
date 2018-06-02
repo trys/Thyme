@@ -5,7 +5,7 @@ For when you need dates, but not times, and certainly not timezones.
 ## Get started
 
 ```js
-import Thyme from '...'
+import Thyme from '@trys/thyme'
 
 const a = new Thyme('2018-10-02')
 const b = new Thyme('2018-10-05')
