@@ -1,6 +1,6 @@
 {
   "name": "@trys/thyme",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Dates without times or timezones",
   "main": "index.js",
   "scripts": {
