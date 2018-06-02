@@ -72,6 +72,11 @@ class Thyme {
   getDate() {
     return Number(this.raw.substring(8, 10))
   }
+
+  format() {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    return `${this.getDate()} ${months[this.getMonth()]} ${this.getFullYear()}`
+  }
 }
 
 Thyme.prototype.valueOf = function () {

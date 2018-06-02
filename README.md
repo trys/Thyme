@@ -65,3 +65,10 @@ a.add(2)
 a.remove()
 // 2018-10-04
 ```
+
+## Basic formatting
+
+```js
+a.format()
+// 4 October 2018
+```
