@@ -4,6 +4,10 @@ For when you need dates, but not times, and certainly not timezones.
 
 ## Get started
 
+```
+npm i @trys/thyme
+```
+
 ```js
 import Thyme from '@trys/thyme'
 
