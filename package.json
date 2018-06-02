@@ -1,5 +1,5 @@
 {
-  "name": "Thyme",
+  "name": "@trys/thyme",
   "version": "1.0.0",
   "description": "Dates without times or timezones",
   "main": "index.js",
