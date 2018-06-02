@@ -58,7 +58,7 @@ class Thyme {
   }
 
   getDay() {
-    return this.offset(new Date(this.raw)).getDay()
+    return this._offset(new Date(this.raw)).getDay()
   }
 
   getFullYear() {

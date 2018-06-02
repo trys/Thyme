@@ -4,7 +4,7 @@
   "description": "Dates without times or timezones",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/trys/Thyme/issues"
   },
-  "homepage": "https://github.com/trys/Thyme#readme"
+  "homepage": "https://github.com/trys/Thyme#readme",
+  "devDependencies": {
+    "jest": "^23.1.0"
+  }
 }
