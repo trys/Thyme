@@ -19,18 +19,18 @@ class Thyme {
     return `${d.getFullYear()}-${double(d.getMonth() + 1)}-${double(d.getDate())}`
   }
 
-  changeDate(n) {
+  _alter(n) {
     const offsetDate = this._offset(new Date(this.raw))
     offsetDate.setDate(offsetDate.getDate() + n)
     return this._normalise(this._format(offsetDate))
   }
 
   add(n = 1) {
-    return this.changeDate(n)
+    return this._alter(n)
   }
 
   remove(n = 1) {
-    return this.changeDate(0 - n)
+    return this._alter(0 - n)
   }
 
   till(end) {
@@ -62,7 +62,7 @@ class Thyme {
   }
 
   getFullYear() {
-    return this.raw.substring(0, 4)
+    return Number(this.raw.substring(0, 4))
   }
 
   getMonth() {
