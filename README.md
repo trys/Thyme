@@ -19,6 +19,12 @@ a.equals(b)
 
 a.equals(a)
 // true
+
+a.equals(new Thyme('2018-10-02'))
+// true
+
+new Thyme('2018-10-02').equals('2018-10-02')
+// true
 ```
 
 ## Range of dates
@@ -36,7 +42,7 @@ range.contains(a)
 a.getFullYear()
 // 2018
 
-/* Zero-based */
+/* Note, zero-based */
 a.getMonth()
 // 9
 
@@ -49,7 +55,7 @@ a.getDay()
 
 ## Add/Remove days
 
-```
+```js
 a.add()
 // 2018-10-03
 
