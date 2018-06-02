@@ -86,3 +86,10 @@ describe('.getDate()', () => {
     expect(date.getDate()).toEqual(12);
   });
 });
+
+describe('.format()', () => {
+  test('Returns a formatted date string', () => {
+    const date = new Thyme('2018-06-12T00:00:00.000Z');
+    expect(date.format()).toEqual('12 June 2018');
+  });
+});
