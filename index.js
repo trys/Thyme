@@ -87,4 +87,4 @@ Thyme.prototype.toString = function () {
   return this.raw
 }
 
-module.exports = Thyme
+export default Thyme
