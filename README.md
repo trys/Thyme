@@ -40,7 +40,7 @@ range.contains(a)
 // true
 ```
 
-The `contains` method can be added to filtered array, or self-created arrays.
+The `contains` method can be added to any array, plus it'll convert any strings into `Thyme` objects making it a neat way to convert multiple dates to `Thyme`.
 
 ```js
 const range = new Thyme().range([ '2018-02-12' ])
