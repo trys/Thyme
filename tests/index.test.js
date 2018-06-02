@@ -93,3 +93,16 @@ describe('.format()', () => {
     expect(date.format()).toEqual('12 June 2018');
   });
 });
+
+describe('.range()', () => {
+  test('Add a `contains` method to a dates array', () => {
+    const dates = new Thyme('2018-12-25').till('2019-01-01')
+    expect(typeof dates.contains).toEqual('function')
+
+    const filterDates = dates.filter(a => a)
+    expect(typeof filterDates.contains).toEqual('undefined')
+
+    const rangeDates = new Thyme().range(filterDates)
+    expect(typeof rangeDates.contains).toEqual('function')  
+  });
+});

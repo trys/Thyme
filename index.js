@@ -46,11 +46,7 @@ class Thyme {
       current.add()
     }
 
-    dates.contains = function(d) {
-      return !!this.find(a => a.toString() === d.toString())
-    }
-
-    return dates
+    return this.range(dates)
   }
 
   equals(t) {
@@ -76,6 +72,16 @@ class Thyme {
   format() {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     return `${this.getDate()} ${months[this.getMonth()]} ${this.getFullYear()}`
+  }
+
+  range(dates) {
+    dates = dates.map(d => typeof d === 'object' ? d : new Thyme(d))
+
+    dates.contains = function(d) {
+      return !!this.find(a => a.toString() === d.toString())
+    }
+
+    return dates
   }
 }
 

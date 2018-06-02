@@ -40,6 +40,15 @@ range.contains(a)
 // true
 ```
 
+The `contains` method can be added to filtered array, or self-created arrays.
+
+```js
+const range = new Thyme().range([ '2018-02-12' ])
+range.contains('2018-02-12')
+// true
+```
+
+
 ## Date-like methods
 
 ```js
