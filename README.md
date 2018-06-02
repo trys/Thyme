@@ -55,6 +55,8 @@ a.getDay()
 
 ## Add/Remove days
 
+Thyme objects are mutable, so calling `a.add()` or `a.remove()` will return the new date AND mutate `a`.
+
 ```js
 a.add()
 // 2018-10-03
