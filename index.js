@@ -38,11 +38,11 @@ class Thyme {
     end = new Thyme(end)
     if (end < this) return dates
 
-    const now = new Thyme()
+    const now = new Thyme(this)
     let current = new Thyme(this)
 
     while (current <= end) {
-      if (current > now) dates.push(new Thyme(current))
+      if (current >= now) dates.push(new Thyme(current))
       current.add()
     }
 

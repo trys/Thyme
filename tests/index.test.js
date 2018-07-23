@@ -15,6 +15,12 @@ describe('.till()', () => {
     const inBetween = christmas.till(newYearsDay);
 
     expect(inBetween).toHaveLength(8);
+
+    const lastChristmas = new Thyme('2017-12-25');
+    const lastNewYearsDay = new Thyme('2018-01-01T00:00:00.000Z');
+    const inBetweenLastYear = lastChristmas.till(lastNewYearsDay);
+
+    expect(inBetweenLastYear).toHaveLength(8);
   });
 });
 
