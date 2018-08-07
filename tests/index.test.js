@@ -112,3 +112,20 @@ describe('.range()', () => {
     expect(typeof rangeDates.contains).toEqual('function')  
   });
 });
+
+describe('.contains()', () => {
+  test('Test the `contains` method', () => {
+    const dates = new Thyme('2018-12-25').till('2019-01-01')
+    expect(dates.contains('2018-12-30')).toEqual(true)
+    expect(dates.contains('2018-12-25')).toEqual(true)
+    expect(dates.contains('2019-01-01')).toEqual(true)
+    expect(dates.contains('2017-12-30')).toEqual(false)
+  });
+});
+
+describe('.toJSON()', () => {
+  test('Returns the raw value when stringified', () => {
+    const date = new Thyme('2018-06-12T00:00:00.000Z');
+    expect(date.toJSON()).toEqual('2018-06-12');
+  });
+});

@@ -1,44 +1,44 @@
 "use strict";
 
-class Thyme {
-  constructor(raw) {
-    if (!raw) raw = this._format(this._offset(new Date()))
-    this._normalise(raw.toString().replace(/\//g, '-'))
+var Thyme = function () {
+  function Thyme(raw) {
+    if (!raw) raw = this._format(this._offset(new Date()));
+    this._normalise(raw.toString().replace(/\//g, '-'));
   }
 
-  _offset(d) {
+  Thyme.prototype._offset = function (d) {
     return new Date(d.getTime() + (d.getTimezoneOffset() * 60000))
   }
 
-  _normalise(raw) {
+  Thyme.prototype._normalise = function (raw) {
     return this.raw = raw.substring(0, 10)
   }
 
-  _format(d) {
-    const double = digit => digit <= 9 ? '0' + digit : digit
+  Thyme.prototype._format = function (d) {
+    var double = digit => digit <= 9 ? '0' + digit : digit
     return `${d.getFullYear()}-${double(d.getMonth() + 1)}-${double(d.getDate())}`
   }
 
-  _alter(n) {
-    const offsetDate = this._offset(new Date(this.raw))
+  Thyme.prototype._alter = function (n) {
+    var offsetDate = this._offset(new Date(this.raw))
     offsetDate.setDate(offsetDate.getDate() + n)
     return this._normalise(this._format(offsetDate))
   }
 
-  add(n = 1) {
+  Thyme.prototype.add = function (n = 1) {
     return this._alter(n)
   }
 
-  remove(n = 1) {
+  Thyme.prototype.remove = function (n = 1) {
     return this._alter(0 - n)
   }
 
-  till(end) {
-    const dates = []
+  Thyme.prototype.till = function (end) {
+    var dates = []
     end = new Thyme(end)
     if (end < this) return dates
 
-    const now = new Thyme(this)
+    var now = new Thyme(this)
     let current = new Thyme(this)
 
     while (current <= end) {
@@ -49,52 +49,54 @@ class Thyme {
     return this.range(dates)
   }
 
-  equals(t) {
+  Thyme.prototype.equals = function (t) {
     return this.raw === t.toString()
   }
 
-  getDay() {
+  Thyme.prototype.getDay = function () {
     return this._offset(new Date(this.raw)).getDay()
   }
 
-  getFullYear() {
+  Thyme.prototype.getFullYear = function () {
     return Number(this.raw.substring(0, 4))
   }
 
-  getMonth() {
+  Thyme.prototype.getMonth = function () {
     return Number(this.raw.substring(5, 7)) - 1
   }
 
-  getDate() {
+  Thyme.prototype.getDate = function () {
     return Number(this.raw.substring(8, 10))
   }
 
-  format() {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  Thyme.prototype.format = function () {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     return `${this.getDate()} ${months[this.getMonth()]} ${this.getFullYear()}`
   }
 
-  range(dates) {
+  Thyme.prototype.range = function (dates) {
     dates = dates.map(d => typeof d === 'object' ? d : new Thyme(d))
 
-    dates.contains = function(d) {
+    dates.contains = function (d) {
       return !!this.find(a => a.toString() === d.toString())
     }
 
     return dates
   }
-}
 
-Thyme.prototype.valueOf = function () {
-  return this.raw
-}
+  Thyme.prototype.valueOf = function () {
+    return this.raw;
+  };
 
-Thyme.prototype.toString = function () {
-  return this.raw
-}
+  Thyme.prototype.toString = function () {
+    return this.raw;
+  };
 
-Thyme.prototype.toJSON = function () {
-  return this.raw
-}
+  Thyme.prototype.toJSON = function () {
+    return this.raw;
+  };
+
+  return Thyme;
+}();
 
 module.exports = Thyme
