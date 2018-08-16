@@ -15,7 +15,9 @@ var Thyme = function () {
   }
 
   Thyme.prototype._format = function (d) {
-    var double = digit => digit <= 9 ? '0' + digit : digit
+    var double = function(digit) {
+      return digit <= 9 ? '0' + digit : digit
+    }
     return `${d.getFullYear()}-${double(d.getMonth() + 1)}-${double(d.getDate())}`
   }
 
@@ -75,10 +77,14 @@ var Thyme = function () {
   }
 
   Thyme.prototype.range = function (dates) {
-    dates = dates.map(d => typeof d === 'object' ? d : new Thyme(d))
+    dates = dates.map(function(d) {
+      return typeof d === 'object' ? d : new Thyme(d)
+    })
 
     dates.contains = function (d) {
-      return !!this.find(a => a.toString() === d.toString())
+      return !!this.find(function(a) {
+        return a.toString() === d.toString()
+      })
     }
 
     return dates
