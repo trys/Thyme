@@ -18,7 +18,7 @@ var Thyme = function () {
     var double = function(digit) {
       return digit <= 9 ? '0' + digit : digit
     }
-    return `${d.getFullYear()}-${double(d.getMonth() + 1)}-${double(d.getDate())}`
+    return d.getFullYear() + '-' + double(d.getMonth() + 1) + '-' + double(d.getDate())
   }
 
   Thyme.prototype._alter = function (n) {
@@ -73,7 +73,7 @@ var Thyme = function () {
 
   Thyme.prototype.format = function () {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    return `${this.getDate()} ${months[this.getMonth()]} ${this.getFullYear()}`
+    return this.getDate() + ' ' + months[this.getMonth()] + ' ' + this.getFullYear()
   }
 
   Thyme.prototype.range = function (dates) {
